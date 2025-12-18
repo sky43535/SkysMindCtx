@@ -88,12 +88,50 @@ if SMCtxHolidays.current == .halloween {
 
 Text("Holiday: \(SMCtxHolidays.formatted)")
 ```
-**notes**
-if you would like each holidy to be active in set time frame such as 7 days period aka likw week of set 
+### Holiday “Week Of” Support (Optional)
+in this i use 7 days you can use whatever amount of days by changing the number after "="
+By default, a holiday is only active on its exact day.
+
+If you want holidays to stay active for multiple days (for example, a full holiday week),
+you can set a global day range like this:
 ```swift
 SMCtxHolidays.holidayRadiusDays = 7
 ```
-in your @main struct by the way in you may use any number the number is how many **days* you want it active **before** the day of note this sets every instance of this code to use that day currently there is no way to use it indepenttly for diffrent holidiys or instances of code 
+**Where to put this**
+
+Put this once when your app starts, usually inside your @main App file (ussally named your app name followed by app) : 
+```swift
+  @main
+struct MyApp: App {
+    init() {
+        SMCtxHolidays.holidayRadiusDays = 7 // put here 
+    }
+
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+        }
+    }
+}
+
+```
+###What this does (in simple terms)
+
+* 7 means the holiday is active 7 days before and 7 days after the actual date
+
+* The holiday is still active on the exact day itself
+
+* This setting applies everywhere in your app
+
+###Important to know
+
+* This setting is global
+
+* Every time you use SMCtxHolidays, it uses this value
+
+* You cannot currently set different ranges for different holidays
+
+* If you don’t set this, holidays only activate on the exact day
 #
 ### Battery (`SMCtxBattery`)
 **import**
