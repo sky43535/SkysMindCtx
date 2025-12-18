@@ -88,6 +88,12 @@ if SMCtxHolidays.current == .halloween {
 
 Text("Holiday: \(SMCtxHolidays.formatted)")
 ```
+**notes**
+if you would like each holidy to be active in set time frame such as 7 days period aka likw week of set 
+```swift
+SMCtxHolidays.holidayRadiusDays = 7
+```
+in your @main struct by the way in you may use any number the number is how many **days* you want it active **before** the day of note this sets every instance of this code to use that day currently there is no way to use it indepenttly for diffrent holidiys or instances of code 
 #
 ### Battery (`SMCtxBattery`)
 **import**
